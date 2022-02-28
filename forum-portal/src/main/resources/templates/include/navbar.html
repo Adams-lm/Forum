@@ -46,7 +46,7 @@
                     <div class="dropdown-menu">
                         <a th:if="${!#strings.equalsIgnoreCase(loginUser.role, 'USER')}" href="/admin" target="_blank" class="dropdown-item">管理后台</a>
                         <div th:if="${!#strings.equalsIgnoreCase(loginUser.role, 'USER')}" class="dropdown-divider"></div>
-                        <a th:href="${'/user/' + loginUser.id}" class="dropdown-item" target="_blank" href="#">个人主页</a>
+                        <a th:href="${'/user/' + loginUser.id}" class="dropdown-item" href="#">个人主页</a>
                         <a href="/user/logout" class="dropdown-item">登出</a>
                     </div>
                 </li>
@@ -105,7 +105,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">邮箱</span>
                         </div>
-                        <input id="registerEmail" type="email" class="form-control" placeholder="注册邮箱（用于接收账号激活邮件）" />
+                        <input id="registerEmail" type="email" class="form-control" placeholder="注册邮箱" />
                     </div>
                     <br/>
                     <div class="input-group">
