@@ -14,7 +14,7 @@
                        th:title="${posts.title}"
                        th:href="${itemHrefPrefix + posts.id}"
                        target="_blank"
-                       href="#" style="font-size: 14px;">对于较长的内容，你可以通过添加 .text-truncate 类将文本截断并添加省略号</a>
+                       href="#" style="font-size: 14px;"></a>
                 </div>
                 <div class="col-3 text-truncate" style="padding: 0">
                     <p th:text="${#dates.format(posts.createdAt, 'yyyy-MM-dd')}"
