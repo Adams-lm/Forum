@@ -36,11 +36,6 @@ public class MessageServiceImpl implements MessageService {
             }
         }
 
-        // 站内信
-        if (MessageChannelEn.STATION_LETTER.equals(message.getChannel())) {
-            // do nothing
-        }
-
         messageRepository.save(message);
     }
 

@@ -4,7 +4,7 @@
 <div th:fragment="users_card(title, moreHref, usersList)" class="card">
     <div class="card-header" style="background-color: white;">
         <span th:text="${title}">粉丝</span>
-        <a th:href="${moreHref}" href="#" class="text-decoration-none custom-font-color" style="float: right;font-size: 14px;">更多</a>
+        <a th:href="${moreHref}" href="#" class="text-decoration-none custom-font-color" style="float: right;font-size: 14px;"></a>
     </div>
     <div class="card-body" style="padding-bottom: 8px;">
         <div th:if="${#lists.isEmpty(usersList)}"

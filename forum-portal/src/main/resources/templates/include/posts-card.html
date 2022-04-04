@@ -5,7 +5,7 @@
     <div th:if="${!#lists.isEmpty(postsList)}" class="card">
         <div class="card-header" style="background-color: white;">
             <span th:text="${title}">公告</span>
-            <a th:href="${moreHref}" target="_blank" href="#" class="text-decoration-none custom-font-color" style="float: right;font-size: 14px;">更多</a>
+            <a th:href="${moreHref}" target="_blank" href="#" class="text-decoration-none custom-font-color" style="float: right;font-size: 14px;"></a>
         </div>
         <div class="card-body">
             <div th:each="posts : ${postsList}" class="row" style="padding-bottom: 7px;">

@@ -159,7 +159,7 @@ public class WebUtil {
         SafesUtil.ofList(resultModel.getData()).forEach(tagQueryResponse -> {
             Map<String, Object> tag = new HashMap<>();
             tag.put("name", tagQueryResponse.getName());
-            tag.put("color", StringUtil.getColor(tagQueryResponse.getName()));
+            tag.put("color", "#28A745");
             res.add(tag);
         });
 
@@ -440,6 +440,11 @@ public class WebUtil {
             img.attr("src", getImgUrl(src));
         }
 
+        Elements scripts = document.getElementsByTag("script");
+        for (Element script : scripts) {
+            script.remove();
+        }
+
         return document.toString();
     }
 
@@ -475,20 +480,6 @@ public class WebUtil {
     private static final Long ONE_MONTH_TIME = ONE_DAY_TIME * 30;
 
     private static String dateShow(Date date) {
-        Long timeout = System.currentTimeMillis() - date.getTime();
-
-        if (timeout > ONE_MONTH_TIME) {
-            return new SimpleDateFormat("yyyy年MM月dd日").format(date);
-        } else if (timeout > ONE_DAY_TIME) {
-            return calculateTime(timeout, ONE_DAY_TIME) + "天前";
-        } else if (timeout > ONE_HOUR_TIME) {
-            return calculateTime(timeout, ONE_HOUR_TIME) + "小时前";
-        } else if (timeout > ONE_MINUTE_TIME) {
-            return calculateTime(timeout, ONE_MINUTE_TIME) + "分钟前";
-        } else if (timeout > ONE_SECOND_TIME) {
-            return calculateTime(timeout, ONE_SECOND_TIME) + "秒前";
-        }
-
         return new SimpleDateFormat("yyyy年MM月dd日").format(date);
     }
 

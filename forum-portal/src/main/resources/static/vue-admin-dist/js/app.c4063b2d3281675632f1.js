@@ -53,7 +53,25 @@ webpackJsonp([1], {
                     class: t.menuitemClasses,
                     attrs: {"active-name": "home", theme: "dark", width: "auto"},
                     on: {"on-select": t.menuSelect}
-                }, [a("MenuItem", {attrs: {name: "home"}}, [a("Icon", {attrs: {type: "ios-home"}}), t._v(" "), a("span", [t._v("首页")])], 1), t._v(" "), a("Submenu", {attrs: {name: "user"}}, [a("template", {slot: "title"}, [a("Icon", {attrs: {type: "ios-man"}}), t._v(" "), a("span", [t._v("用户")])], 1), t._v(" "), a("MenuItem", {attrs: {name: "user-manager"}}, [t._v("用户管理")]), t._v(" "), a("MenuItem", {attrs: {name: "user-opt-log"}}, [t._v("操作日志")])], 2), t._v(" "), a("Submenu", {attrs: {name: "article"}}, [a("template", {slot: "title"}, [a("Icon", {attrs: {type: "ios-paper"}}), t._v(" "), a("span", [t._v("文章")])], 1), t._v(" "), a("MenuItem", {attrs: {name: "article-manager"}}, [t._v("文章管理")]), t._v(" "), a("MenuItem", {attrs: {name: "article-type"}}, [t._v("文章类别")])], 2), t._v(" "), a("MenuItem", {attrs: {name: "faq-manager"}}, [a("Icon", {attrs: {type: "ios-help-circle"}}), t._v(" "), a("span", [t._v("问答管理")])], 1), t._v(" "), a("Submenu", {attrs: {name: "config"}}, [a("template", {slot: "title"}, [a("Icon", {attrs: {type: "ios-paper"}}), t._v(" "), a("span", [t._v("配置")])], 1), t._v(" "), a("MenuItem", {attrs: {name: "tag-manager"}}, [t._v("标签管理")]), t._v(" "), a("MenuItem", {attrs: {name: "config-carousel"}}, [t._v("轮播图配置")])], 2)], 1)], 1), t._v(" "), a("Layout", [a("Header", {
+                }, [a("MenuItem", {attrs: {name: "home"}},
+                    [a("Icon", {attrs: {type: "ios-home"}}), t._v(" "), a("span", [t._v("首页")])], 1)
+                    , t._v(" "), a("Submenu", {attrs: {name: "user"}}, [a("template", {slot: "title"},
+                        [a("Icon", {attrs: {type: "ios-man"}}), t._v(" "), a("span", [t._v("用户")])]
+                        , 1), t._v(" "), a("MenuItem", {attrs: {name: "user-manager"}}, [t._v("用户管理")])
+                        , t._v(" "), a("MenuItem", {attrs: {name: "user-opt-log"}}, [t._v("操作日志")])]
+                        , 2), t._v(" "),
+                    a("Submenu", {attrs: {name: "article"}},
+                        [a("template", {slot: "title"},
+                        [a("Icon", {attrs: {type: "ios-paper"}}), t._v(" "), a("span", [t._v("文章")])], 1), t._v(" "),
+                        a("MenuItem", {attrs: {name: "article-manager"}}, [t._v("文章管理")]), t._v(" "),
+                        a("MenuItem", {attrs: {name: "article-type"}}, [t._v("文章类别")])], 2)
+                    , t._v(" "),
+                        a("MenuItem", {attrs: {name: "faq-manager"}}, [a("Icon", {attrs: {type: "ios-help-circle"}}), t._v(" "),
+                        a("span", [t._v("问答管理")])], 1), t._v(" "),
+                    a("MenuItem", {attrs: {name: "tag-manager"}}, [a("Icon", {attrs: {type: "ios-paper"}}), t._v(" "),
+                        a("span", [t._v("标签管理")])], 1), t._v(" "),
+                ], 1)], 1), t._v(" "),
+                    a("Layout", [a("Header", {
                     staticClass: "layout-header-bar",
                     style: {padding: 0}
                 }, [a("Icon", {
@@ -128,7 +146,6 @@ webpackJsonp([1], {
                         width: 150
                     }, {title: "更新时间", key: "updateAt", width: 150}, {
                         title: "操作",
-                        fixed: "right",
                         slot: "action",
                         width: 200,
                         align: "center"
@@ -171,7 +188,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Loading.error(), void a.$Message.error(t.message);
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }
             }, created: function () {
@@ -287,23 +304,22 @@ webpackJsonp([1], {
                         label: "用户登出"
                     }, {value: "USER_REGISTER", label: "用户注册"}],
                     filter: {operatorId: null, type: null},
-                    tableColumns: [{title: "用户id", key: "userId", fixed: "left", width: 80}, {
+                    tableColumns: [{title: "用户id", key: "userId", width: 80}, {
                         title: "头像",
                         key: "avatar",
                         width: 70,
-                        fixed: "left",
                         render: function (t, e) {
                             return t("Avatar", {props: {src: e.row.avatar}}, e.row.nickname)
                         }
-                    }, {title: "邮箱", key: "email", fixed: "left", width: 180}, {
+                    }, {title: "邮箱", key: "email",  width: 180}, {
                         title: "昵称",
                         key: "nickname",
                         width: 100
                     }, {title: "操作类型", key: "type", width: 150}, {
                         title: "内容",
                         key: "content",
-                        width: 800
-                    }, {title: "操作时间", key: "createAt", fixed: "right", width: 150}],
+                        width: 900
+                    }, {title: "操作时间", key: "createAt",  width: 150}],
                     tableData: [],
                     tableTotal: 0,
                     tablePageSize: 10,
@@ -511,7 +527,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, top: function (t, e) {
                     var a = this;
@@ -520,7 +536,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, marrow: function (t, e) {
                     var a = this;
@@ -529,7 +545,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, auditState: function (t, e) {
                     var a = this;
@@ -538,7 +554,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }
             }, created: function () {
@@ -759,7 +775,6 @@ webpackJsonp([1], {
                         width: 180
                     }, {title: "更新时间", key: "updateAt", width: 180}, {
                         title: "操作",
-                        fixed: "right",
                         slot: "action",
                         width: 250,
                         align: "center"
@@ -793,7 +808,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, createOk: function () {
                     var t = this;
@@ -991,7 +1006,7 @@ webpackJsonp([1], {
                         title: "更新时间",
                         key: "updateAt",
                         width: 150
-                    }, {title: "操作", fixed: "right", slot: "action", width: 180, align: "center"}],
+                    }, {title: "操作",  slot: "action", width: 180, align: "center"}],
                     tableData: [],
                     tableTotal: 0,
                     tablePageSize: 10,
@@ -1021,7 +1036,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }
             }, created: function () {
@@ -1197,7 +1212,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, createOk: function () {
                     var t = this;
@@ -1452,7 +1467,7 @@ webpackJsonp([1], {
                         is: e
                     }).then(function (t) {
                         if (200 !== t.code) return a.$Message.error(t.message), void a.$Loading.error();
-                        a.$Loading.finish(), a.$Message.success(t.message), a.loadData()
+                        a.$Loading.finish(), a.$Message.success("操作成功"), a.loadData()
                     })
                 }, createOk: function () {
                     var t = this;
