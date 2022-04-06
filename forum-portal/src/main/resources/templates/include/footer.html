@@ -33,6 +33,10 @@
                 toastr.error('登录邮箱不能为空');
                 return false;
             }
+            if (email.indexOf('@') < 0) {
+                toastr.error('请输入正确的邮箱格式');
+                return false;
+            }
 
             var password = $('#loginPassword').val();
             if (!password) {
