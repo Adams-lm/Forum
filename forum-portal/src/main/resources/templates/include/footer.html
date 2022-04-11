@@ -5,7 +5,6 @@
     <div class="foot custom-bg-color">
         <ul class="foot-link">
             <!--<li><a class="text-reset" href="javascript:;">在线人数：<span th:text="${onlineUsers}"></span></a></li>-->
-            <!--<li><a class="text-reset" href="https://www.developers.pub/blog" target="_blank">博客文章</a></li>-->
             <li><span th:text="${globalConfig.websiteRecord}"></span>
                 <a class="text-reset"
                    href="https://www.baidu.com"
@@ -52,6 +51,13 @@
                 location.reload();
             });
         });
+
+        $("body").keydown(function() {
+            if (event.keyCode == "13") {//keyCode=13是回车键
+                $('#loginBtn').click();//换成按钮的id即可
+            }
+        });
+
 
         // 注册
         $('#registerBtn').on('click', function () {

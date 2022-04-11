@@ -1178,7 +1178,6 @@ webpackJsonp([1], {
                         width: 180
                     }, {title: "更新时间", key: "updateAt", width: 180}, {
                         title: "操作",
-                        fixed: "right",
                         slot: "action",
                         width: 150,
                         align: "center"
