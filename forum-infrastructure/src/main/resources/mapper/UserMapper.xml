@@ -36,10 +36,10 @@
                 and state = #{state}
             </if>
             <if test="nickname != null">
-                and nickname = #{nickname}
+                and nickname like CONCAT('%', #{nickname}, '%')
             </if>
             <if test="email != null">
-                and email = #{email}
+                and email like CONCAT('%', #{email}, '%')
             </if>
         </trim>
     </sql>

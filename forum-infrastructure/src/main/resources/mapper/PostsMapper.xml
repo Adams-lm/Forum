@@ -108,7 +108,7 @@
                 and author_id = #{authorId}
             </if>
             <if test="title != null">
-                and title = #{title}
+                and title like CONCAT('%', #{title}, '%')
             </if>
             <if test="markdownContent != null">
                 and markdown_content = #{markdownContent}
