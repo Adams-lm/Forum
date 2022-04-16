@@ -40,9 +40,9 @@ public class FaqUserPageResponse implements Serializable {
 
     private String authorAvatar;
 
-    private Date createAt;
+    private String createAt;
 
-    private Date updateAt;
+    private String updateAt;
 
     private Long views;
 

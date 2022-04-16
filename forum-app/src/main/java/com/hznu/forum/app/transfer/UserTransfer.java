@@ -98,7 +98,7 @@ public class UserTransfer {
                 .signature("")
                 .role(UserRoleEn.USER)
                 .avatar("")
-                .sex(UserSexEn.UNKNOWN)
+                .sex(UserSexEn.MAN)
                 .lastLoginTime(new Date())
                 .build();
     }

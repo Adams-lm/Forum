@@ -2,6 +2,7 @@ package com.hznu.forum.portal.support;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.hznu.forum.common.support.DateUtil;
 import lombok.Data;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,9 +29,11 @@ import com.hznu.forum.common.support.SafesUtil;
 import com.hznu.forum.common.support.StringUtil;
 
 import javax.annotation.Resource;
+import javax.rmi.CORBA.Util;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -252,13 +255,15 @@ public class WebUtil {
     public List<Map<String, Object>> buildArticles(List<ArticleUserPageResponse> responses) {
         List<Map<String, Object>> articleList = new ArrayList<>();
 
+
         SafesUtil.ofList(responses).forEach(response -> {
+
             Map<String, Object> article = new HashMap<>();
             article.put("category", response.getCategory());
             article.put("categoryDesc", response.getCategoryDesc());
             article.put("id", response.getId());
             article.put("title", response.getTitle());
-            article.put("createdAt", dateShow(response.getCreateAt()));
+            article.put("createdAt", DateUtil.toyyyyMMddHHmmss(response.getCreateAt()));
             article.put("desc", getIntroduction(response.getIntroduction(), !ObjectUtils.isEmpty(response.getHeadImg())));
             article.put("headImg", headImg(response.getHeadImg()));
 
@@ -481,6 +486,16 @@ public class WebUtil {
 
     private static String dateShow(Date date) {
         return new SimpleDateFormat("yyyy年MM月dd日").format(date);
+    }
+
+    private static String dateShow(String date) {
+        Date time = null;
+        try {
+            time = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("yyyy年MM月dd日").format(time);
     }
 
     private static Long calculateTime(Long l1, Long l2) {

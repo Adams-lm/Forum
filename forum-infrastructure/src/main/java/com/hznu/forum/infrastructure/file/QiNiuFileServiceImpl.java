@@ -39,7 +39,7 @@ public class QiNiuFileServiceImpl implements FileService {
 
         try {
             // 这个位置需要注意  Region.huanan() 表示的是华南地区， 空间开了那个地区就填那个地区。
-            Configuration cfg = new Configuration(Region.huadong());
+            Configuration cfg = new Configuration(Region.huanan());
             UploadManager uploadManager = new UploadManager(cfg);
 
             String token = Auth.create(accessKey, secretKey).uploadToken(bucketName, key);

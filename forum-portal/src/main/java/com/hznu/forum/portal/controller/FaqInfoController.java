@@ -1,5 +1,6 @@
 package com.hznu.forum.portal.controller;
 
+import com.hznu.forum.common.support.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -141,7 +142,7 @@ public class FaqInfoController {
             Map<String, Object> posts = new HashMap<>();
             posts.put("id", faqUserPageResponse.getId());
             posts.put("title", faqUserPageResponse.getTitle());
-            posts.put("createdAt", faqUserPageResponse.getCreateAt());
+            posts.put("createdAt", DateUtil.toyyyyMMddHHmmss(faqUserPageResponse.getCreateAt()));
             postsList.add(posts);
         });
 

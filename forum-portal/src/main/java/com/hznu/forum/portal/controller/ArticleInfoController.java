@@ -1,5 +1,6 @@
 package com.hznu.forum.portal.controller;
 
+import com.hznu.forum.common.support.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
@@ -139,7 +140,7 @@ public class ArticleInfoController {
             Map<String, Object> posts = new HashMap<>();
             posts.put("id", articleUserPageResponse.getId());
             posts.put("title", articleUserPageResponse.getTitle());
-            posts.put("createdAt", articleUserPageResponse.getCreateAt());
+            posts.put("createdAt", DateUtil.toyyyyMMddHHmmss(articleUserPageResponse.getCreateAt()));
             postsList.add(posts);
         });
 

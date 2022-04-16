@@ -10,6 +10,7 @@ import com.hznu.forum.app.support.LoginUserContext;
 import com.hznu.forum.common.enums.AuditStateEn;
 import com.hznu.forum.common.enums.ContentTypeEn;
 import com.hznu.forum.common.enums.PostsCategoryEn;
+import com.hznu.forum.common.support.DateUtil;
 import com.hznu.forum.common.support.SafesUtil;
 import com.hznu.forum.domain.entity.Comment;
 import com.hznu.forum.domain.entity.Faq;
@@ -68,13 +69,13 @@ public class FaqTransfer {
             return FaqUserPageResponse.builder()
                     .category(PostsCategoryEn.FAQ.getValue())
                     .auditState(faq.getAuditState().getDesc())
-                    .updateAt(faq.getUpdateAt())
+                    .updateAt(DateUtil.toyyyyMMddHHmmss(faq.getUpdateAt()))
                     .categoryDesc(PostsCategoryEn.FAQ.getDesc())
                     .authorAvatar(faq.getAuthor().getAvatar())
                     .authorId(faq.getAuthor().getId())
                     .authorNickname(faq.getAuthor().getNickname())
                     .comments(faq.getComments())
-                    .createAt(faq.getCreateAt())
+                    .createAt(DateUtil.toyyyyMMddHHmmss(faq.getCreateAt()))
                     .id(faq.getId())
                     .introduction(faq.getMarkdownContent())
                     .tags(SafesUtil.ofSet(faq.getTags()).stream().map(tag -> {
@@ -119,7 +120,7 @@ public class FaqTransfer {
 
         SafesUtil.ofList(faqs).forEach(faq -> {
             res.add(FaqHotsResponse.builder()
-                    .createAt(faq.getCreateAt())
+                    .createAt(DateUtil.toyyyyMMdd(faq.getCreateAt()))
                     .id(faq.getId())
                     .title(faq.getTitle())
                     .build());

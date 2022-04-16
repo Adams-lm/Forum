@@ -47,9 +47,9 @@ public class ArticleUserPageResponse implements Serializable {
 
     private String authorAvatar;
 
-    private Date createAt;
+    private String createAt;
 
-    private Date updateAt;
+    private String updateAt;
 
     private Long views;
 

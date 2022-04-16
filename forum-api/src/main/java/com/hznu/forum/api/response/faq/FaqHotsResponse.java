@@ -23,5 +23,5 @@ public class FaqHotsResponse implements Serializable {
 
     private String title;
 
-    private Date createAt;
+    private String createAt;
 }

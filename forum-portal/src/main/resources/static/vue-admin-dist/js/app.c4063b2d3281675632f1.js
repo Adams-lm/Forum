@@ -451,7 +451,7 @@ webpackJsonp([1], {
                         title: "作者id",
                         key: "authorId",
                         fixed: "left",
-                        width: 80
+                        width: 60
                     }, {
                         title: "头像", key: "authorAvatar", width: 70, fixed: "left", render: function (t, e) {
                             return t("Avatar", {props: {src: e.row.authorAvatar}}, e.row.authorNickname)
@@ -475,17 +475,16 @@ webpackJsonp([1], {
                         title: "标题",
                         key: "title",
                         width: 180
-                    }, {title: "浏览量", key: "views", width: 80}, {
+                    }, {title: "浏览量", key: "views", width: 70}, {
                         title: "点赞量",
                         key: "approvals",
-                        width: 80
-                    }, {title: "评论量", key: "comments", width: 80}, {
+                        width: 70
+                    }, {title: "评论量", key: "comments", width: 70}, {
                         title: "创建时间",
                         key: "createAt",
                         width: 150
                     }, {title: "更新时间", key: "updateAt", width: 150}, {
                         title: "操作",
-                        fixed: "right",
                         slot: "action",
                         width: 280,
                         align: "center"
