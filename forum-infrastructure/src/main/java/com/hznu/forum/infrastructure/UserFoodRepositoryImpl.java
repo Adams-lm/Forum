@@ -2,6 +2,7 @@ package com.hznu.forum.infrastructure;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hznu.forum.common.enums.AuditStateEn;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 import com.hznu.forum.common.model.PageRequest;
@@ -62,7 +63,7 @@ public class UserFoodRepositoryImpl extends AbstractPostsRepository implements U
         List<Long> postsIds = new ArrayList<>();
         userFoodDOS.forEach(userFoodDO -> postsIds.add(userFoodDO.getPostsId()));
 
-        return basePagePosts(postsIds, pageInfo, null);
+        return basePagePosts(postsIds, pageInfo, AuditStateEn.PASS);
     }
 
     @Override

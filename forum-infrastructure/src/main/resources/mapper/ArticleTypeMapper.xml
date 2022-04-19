@@ -77,7 +77,7 @@
         <foreach collection="scopes" item="scope" open="(" separator="," close=")">
             #{scope}
         </foreach>
-        ORDER BY create_at DESC
+        ORDER BY ref_count DESC
     </select>
 
     <update id="update" parameterType="com.hznu.forum.infrastructure.dal.dataobject.ArticleTypeDO">

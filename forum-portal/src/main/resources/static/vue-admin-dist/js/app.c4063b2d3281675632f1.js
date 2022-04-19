@@ -102,7 +102,7 @@ webpackJsonp([1], {
                 return this._m(0)
             }, staticRenderFns: [function () {
                 var t = this.$createElement, e = this._self._c || t;
-                return e("div", {staticClass: "admin-home"}, [e("h1", {staticClass: "admin-home-title"}, [this._v("欢迎来到技术交流平台管理后台")])])
+                return e("div", {staticClass: "admin-home"}, [e("h1", {staticClass: "admin-home-title"}, [this._v("技术交流社区管理后台")])])
             }]
         };
         var m = a("VU/8")({
@@ -814,7 +814,7 @@ webpackJsonp([1], {
                     this.$refs.newForm.validate(function (e) {
                         e && (t.$Loading.start(), t.$http.post("/admin-rest/article/type-add", t.newForm).then(function (e) {
                             if (200 !== e.code) return t.$Loading.error(), void t.$Message.error(e.message);
-                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success(e.message), t.tablePageNo = 1, t.loadData()
+                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success("新增成功"), t.tablePageNo = 1, t.loadData()
                         }))
                     })
                 }, createCancel: function () {
@@ -1217,7 +1217,7 @@ webpackJsonp([1], {
                     this.$refs.newForm.validate(function (e) {
                         e && (t.$Loading.start(), t.$http.post("/admin-rest/tag/add", t.newForm).then(function (e) {
                             if (200 !== e.code) return t.$Loading.error(), void t.$Message.error(e.message);
-                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success(e.message), t.tablePageNo = 1, t.loadData()
+                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success("新增成功"), t.tablePageNo = 1, t.loadData()
                         }))
                     })
                 }, createCancel: function () {
@@ -1478,7 +1478,7 @@ webpackJsonp([1], {
                             content: N()({imgUrl: t.newForm.imgUrl, actionUrl: t.newForm.actionUrl})
                         }).then(function (e) {
                             if (200 !== e.code) return t.$Loading.error(), void t.$Message.error(e.message);
-                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success(e.message), t.tablePageNo = 1, t.loadData()
+                            t.$refs.newForm.resetFields(), t.showCreateMode = !1, t.$Loading.finish(), t.$Message.success("新增成功"), t.tablePageNo = 1, t.loadData()
                         }))
                     })
                 }, createCancel: function () {

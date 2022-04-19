@@ -7,7 +7,6 @@
             <!--<li><a class="text-reset" href="javascript:;">在线人数：<span th:text="${onlineUsers}"></span></a></li>-->
             <li><span th:text="${globalConfig.websiteRecord}"></span>
                 <a class="text-reset"
-                   href="https://www.baidu.com"
                    th:text="'© 2021-' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' 杭州师范大学'"
                 > © 2016-2021 杭州师范大学</a>
             </li>
@@ -52,11 +51,11 @@
             });
         });
 
-        $("body").keydown(function() {
-            if (event.keyCode == "13") {//keyCode=13是回车键
-                $('#loginBtn').click();//换成按钮的id即可
-            }
-        });
+        // $("body").keydown(function() {
+        //     if (event.keyCode == "13") {//keyCode=13是回车键
+        //         $('#loginBtn').click();//换成按钮的id即可
+        //     }
+        // });
 
 
         // 注册

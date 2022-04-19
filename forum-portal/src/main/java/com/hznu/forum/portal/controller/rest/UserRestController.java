@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -73,8 +75,11 @@ public class UserRestController {
         //获取文件的内容
         InputStream is = file.getInputStream();
         //获取原始文件名
-        String originalFilename = file.getOriginalFilename();
-        ResultModel<String> linkFilename =  updateHeadimg(file,originalFilename,request);
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String dateNowStr = sdf.format(d);
+        String fileName = file.getOriginalFilename() + "_" + dateNowStr;
+        ResultModel<String> linkFilename =  updateHeadimg(file,fileName,request);
         return userApiService.updateHeadImg(linkFilename.getData());
     }
 

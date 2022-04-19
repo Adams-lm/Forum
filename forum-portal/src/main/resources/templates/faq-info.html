@@ -26,7 +26,7 @@
             </div>
             <div class="text-center"
                  style="height: 50px;font-size: 18px;font-weight: 500;line-height: 1.5;padding-top: 10px;">
-                <a th:href="${'/user/' + posts.authorId}" th:text="${posts.authorName}">阿崔</a>
+                <a th:href="${'/user/' + posts.authorId}" th:text="${posts.authorName}"></a>
             </div>
             <button id="followBtn"
                     th:data-target="${isLogin ? '' : '#loginModal'}"

@@ -3,12 +3,6 @@ package com.hznu.forum.portal.controller.rest;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Sets;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 import com.hznu.forum.api.model.ResultModel;
 import com.hznu.forum.api.request.file.FileUploadImgRequest;
 import com.hznu.forum.api.service.FileApiService;
@@ -17,9 +11,17 @@ import com.hznu.forum.common.enums.ErrorCodeEn;
 import com.hznu.forum.common.support.CheckUtil;
 import com.hznu.forum.common.support.StringUtil;
 import com.hznu.forum.portal.support.WebUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -65,7 +67,11 @@ public class FileRestController {
 
     @PostMapping("/upload")
     public ResultModel<String> upload(@RequestParam(value = "image") MultipartFile file, HttpServletRequest request) {
-        String fileName = StringUtil.generateUUID();
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String dateNowStr = sdf.format(d);
+        String fileName = file.getOriginalFilename() + "_" + dateNowStr;
+
         return uploadFile(file, fileName, request);
     }
 

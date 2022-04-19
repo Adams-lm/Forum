@@ -150,7 +150,7 @@ public class TagRepositoryImpl extends AbstractPostsRepository implements TagRep
         PageHelper.startPage(pageRequest.getPageNo(), pageRequest.getPageSize());
 
         Tag tag = pageRequest.getFilter();
-        List<TagDO> tagDOList = tagDAO.query(TagDO.builder()
+        List<TagDO> tagDOList = tagDAO.queryByTag(TagDO.builder()
                 .auditState(ObjectUtils.isEmpty(tag.getAuditState()) ? null : tag.getAuditState().getValue())
                 .name(tag.getName())
                 .groupName(tag.getGroupName())

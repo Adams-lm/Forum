@@ -101,7 +101,7 @@ public class ArticleTransfer {
         article.setTitle(request.getTitle());
         article.setAuthor(LoginUserContext.getUser());
 
-        article.setAuditState(AuditStateEn.WAIT);
+        article.setAuditState(AuditStateEn.PASS);
 
         if (!update) {
             article.setViews(0L);

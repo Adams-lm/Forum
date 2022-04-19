@@ -30,6 +30,30 @@
                 and audit_state = #{auditState}
             </if>
             <if test="groupName != null">
+                and group_name = #{groupName}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="description != null">
+                and description like concat('%', #{description}, '%')
+            </if>
+            <if test="refCount != null">
+                and ref_count = #{refCount}
+            </if>
+            <if test="creatorId != null">
+                and creator_id = #{creatorId}
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="where_clause_value" >
+        <trim prefix="where" prefixOverrides="and|or" >
+            is_delete = 0
+            <if test="auditState != null">
+                and audit_state = #{auditState}
+            </if>
+            <if test="groupName != null">
                 and group_name like concat('%', #{groupName}, '%')
             </if>
             <if test="name != null">
@@ -66,7 +90,7 @@
         SELECT <include refid="all_column"/>
         FROM <include refid="table_name"/>
         <include refid="where_clause_do"/>
-        ORDER BY create_at DESC
+        ORDER BY ref_count DESC
     </select>
 
     <select id="queryInIds" resultMap="resultMap">
@@ -114,6 +138,13 @@
         SELECT <include refid="all_column"/>
         FROM <include refid="table_name"/>
         where id = #{id}
+    </select>
+
+    <select id="queryByTag" parameterType="com.hznu.forum.infrastructure.dal.dataobject.TagDO" resultMap="resultMap">
+        SELECT <include refid="all_column"/>
+        FROM <include refid="table_name"/>
+        <include refid="where_clause_value"/>
+        ORDER BY ref_count DESC
     </select>
 
 </mapper>

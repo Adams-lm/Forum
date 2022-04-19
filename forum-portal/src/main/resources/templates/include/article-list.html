@@ -19,6 +19,7 @@
                            th:href="${'/article/' + article.id}"
                            target="_blank"
                            class="text-truncate posts-list-title"></a>
+                        <small th:if="${!showCategory && article.state == '审核拒绝'}" class="posts-admin-tag posts-admin-tag-top" style="margin-left:5px ">审核拒绝</small>
                     </div>
                     <p th:text="${article.desc}" class="mb-1 posts-list-desc">
                     </p>
@@ -36,10 +37,11 @@
                        th:href="${'/faq/' + article.id}"
                        target="_blank"
                        class="posts-list-title"></a>
+                    <small th:if="${!showCategory && article.state == '审核拒绝'}" class="posts-admin-tag posts-admin-tag-top">审核拒绝</small>
                 </div>
                 <div th:if="${article.isSolution}" class="faq-solution-box">
                     <p style="margin-top: 0;margin-bottom: 5px;">最佳答案：</p>
-                    <p th:text="${article.solution}" style="margin: 0;">人类对外层空间的观察工具，从伽利略手工制造的两英寸望远镜变成了半径10米的成对凯克天文望远镜，观察视野也从尚不能</p>
+                    <p th:text="${article.solution}" style="margin: 0;"></p>
                 </div>
             </div>
 

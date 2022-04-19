@@ -2,6 +2,7 @@ package com.hznu.forum.infrastructure.search;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hznu.forum.common.enums.AuditStateEn;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import com.hznu.forum.common.enums.SearchTypeEn;
@@ -47,7 +48,7 @@ public class DbSearchServiceImpl extends AbstractPostsRepository implements Sear
         List<Long> postsIds = new ArrayList<>();
         searchDOS.forEach(searchDO -> postsIds.add(searchDO.getEntityId()));
 
-        return basePagePosts(postsIds, pageInfo, null);
+        return basePagePosts(postsIds, pageInfo, AuditStateEn.PASS);
     }
 
     @Override

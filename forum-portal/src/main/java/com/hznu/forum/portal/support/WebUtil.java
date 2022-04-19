@@ -266,6 +266,7 @@ public class WebUtil {
             article.put("createdAt", DateUtil.toyyyyMMddHHmmss(response.getCreateAt()));
             article.put("desc", getIntroduction(response.getIntroduction(), !ObjectUtils.isEmpty(response.getHeadImg())));
             article.put("headImg", headImg(response.getHeadImg()));
+            article.put("state", response.getAuditState());
 
             article.put("official", response.getOfficial());
             article.put("top", response.getTop());
@@ -304,6 +305,7 @@ public class WebUtil {
             article.put("categoryDesc", response.getCategoryDesc());
             article.put("title", response.getTitle());
             article.put("createdAt", dateShow(response.getCreateAt()));
+            article.put("state", response.getAuditState());
 
             article.put("isSolution", !ObjectUtils.isEmpty(response.getSolution()));
             if (!ObjectUtils.isEmpty(response.getSolution())) {

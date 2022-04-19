@@ -165,14 +165,14 @@
         SELECT <include refid="all_column"/>
         FROM <include refid="table_name"/>
         <include refid="where_clause_do"/>
-        ORDER BY sort ASC, create_at DESC
+        ORDER BY audit_state DESC, sort ASC, create_at DESC
     </select>
 
     <select id="queryByValue" parameterType="com.hznu.forum.domain.entity.value.PostsPageQueryValue" resultMap="resultMap">
         SELECT <include refid="all_column"/>
         FROM <include refid="table_name"/>
         <include refid="where_clause_value"/>
-        ORDER BY sort ASC, create_at DESC
+        ORDER BY audit_state DESC, sort ASC, create_at DESC
     </select>
 
     <update id="update" parameterType="com.hznu.forum.infrastructure.dal.dataobject.PostsDO">

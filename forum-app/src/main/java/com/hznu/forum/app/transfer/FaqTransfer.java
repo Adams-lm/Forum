@@ -102,8 +102,7 @@ public class FaqTransfer {
         faq.setTags(selectTags);
         faq.setTitle(request.getTitle());
         faq.setAuthor(LoginUserContext.getUser());
-
-        faq.setAuditState(AuditStateEn.WAIT);
+        faq.setAuditState(AuditStateEn.PASS);
 
         if (!update) {
             faq.setSolutionId(0L);

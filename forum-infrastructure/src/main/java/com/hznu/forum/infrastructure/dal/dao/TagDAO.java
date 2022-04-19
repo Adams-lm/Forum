@@ -15,6 +15,8 @@ public interface TagDAO {
 
     void insert(TagDO tagDO);
 
+    List<TagDO> queryByTag(TagDO tagDO);
+
     List<TagDO> query(TagDO tagDO);
 
     void update(TagDO tagDO);
